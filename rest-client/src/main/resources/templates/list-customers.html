@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+
+<head th:replace="common/header :: common-header"></head>
+<body>
+<!-- Preloader Start Here -->
+<div id="preloader"></div>
+<!-- Preloader End Here -->
+<div id="wrapper" class="wrapper bg-ash">
+    <!-- Header Menu Area Start Here -->
+    <div th:replace="common/header :: navbar"></div>
+    <!-- Header Menu Area End Here -->
+    <!-- Page Area Start Here -->
+    <div class="dashboard-page-one">
+        <!-- Sidebar Area Start Here -->
+        <div th:replace="common/header :: sideNav"></div>
+        <!-- Sidebar Area End Here -->
+        <div class="dashboard-content-one">
+            <div class="breadcrumbs-area">
+                <h3>Customers</h3>
+                <ul>
+                    <li>
+                        <a th:href="@{/}">Home</a>
+                    </li>
+                    <li>All Customers</li>
+                </ul>
+            </div>
+            <!-- Breadcubs Area End Here -->
+            <!-- Customer Table Area Start Here -->
+            <div class="card height-auto">
+                <div class="card-body">
+                    <div class="heading-layout1">
+                        <div class="item-title">
+                            <h3>All Customer Data</h3>
+                            <br>
+                            <a th:href="@{/customers/add}" class="btn btn-lg btn-primary"><i
+                                    class="fas fa-user-plus ml-2"> Add Customer</i></a>
+                        </div>
+
+                    </div>
+
+                    <div class="table-responsive">
+                        <table id="myTable" class="table order-column display text-nowrap">
+                            <thead>
+                            <tr>
+                                <th>First name</th>
+                                <th>Last Name</th>
+                                <th>Gender</th>
+                                <th>Phone number</th>
+                                <th>Email</th>
+                                <th>Customer Number</th>
+                                <th>Address</th>
+                                <th>National Id Number</th>
+                                <th>Date Of Birth</th>
+                                <th>Edit</th>
+                                <th>Delete</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr th:each="customer : ${customers}">
+                                <td th:text="${customer.firstName}"></td>
+                                <td th:text="${customer.lastName}"></td>
+                                <td th:text="${customer.gender}"></td>
+                                <td th:text="${customer.phoneNumber}"></td>
+                                <td th:text="${customer.email}"></td>
+                                <td th:text="${customer.customerNumber}"></td>
+                                <td th:text="${customer.address}"></td>
+                                <td th:text="${customer.nationalId}"></td>
+                                <td th:text="${customer.dateOfBirth}"></td>
+
+                                <td><a th:href="@{/customers/edit/{id}(id=${customer.id})}" class="btn btn-primary"><i
+                                        class="fas fa-user-edit ml-2"></i></a></td>
+                                <td ><a  th:href="@{/customers/delete/{id}(id=${customer.id})}" class="btn btn-primary"><i
+                                        class="fas fa-user-times ml-2"></i></a></td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div th:replace="common/header :: body-bottom-scripts"></div>
+</body>
+</html>

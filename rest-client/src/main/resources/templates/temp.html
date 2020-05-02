@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+
+<head th:replace="common/header :: common-header"></head>
+<body>
+<!-- Preloader Start Here -->
+<div id="preloader"></div>
+<!-- Preloader End Here -->
+<div id="wrapper" class="wrapper bg-ash">
+    <!-- Header Menu Area Start Here -->
+    <div th:replace="common/header :: navbar"></div>
+    <!-- Header Menu Area End Here -->
+    <!-- Page Area Start Here -->
+    <div class="dashboard-page-one">
+        <!-- Sidebar Area Start Here -->
+        <div th:replace="common/header :: sideNav"></div>
+        <!-- Sidebar Area End Here -->
+        <div class="dashboard-content-one">
+            <div class="breadcrumbs-area">
+                <h3>Users</h3>
+                <ul>
+                    <li>
+                        <a th:href="@{/}">Home</a>
+                    </li>
+                    <li>All Users</li>
+                </ul>
+            </div>
+            <div class="card height-auto">
+                <div class="card-body">
+                    <p>working</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div th:replace="common/header :: body-bottom-scripts"></div>
+</body>
+</html>

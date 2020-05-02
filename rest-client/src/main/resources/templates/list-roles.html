@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+
+<head th:replace="common/header :: common-header"></head>
+<body>
+<!-- Preloader Start Here -->
+<div id="preloader"></div>
+<!-- Preloader End Here -->
+<div id="wrapper" class="wrapper bg-ash">
+    <!-- Header Menu Area Start Here -->
+    <div th:replace="common/header :: navbar"></div>
+    <!-- Header Menu Area End Here -->
+    <!-- Page Area Start Here -->
+    <div class="dashboard-page-one">
+        <!-- Sidebar Area Start Here -->
+        <div th:replace="common/header :: sideNav"></div>
+        <!-- Sidebar Area End Here -->
+        <div class="dashboard-content-one">
+            <div class="breadcrumbs-area">
+                <h3>Roles</h3>
+                <ul>
+                    <li>
+                        <a th:href="@{/}">Home</a>
+                    </li>
+                    <li>All Roles</li>
+                </ul>
+            </div>
+            <!-- Breadcubs Area End Here -->
+            <!-- Role Table Area Start Here -->
+            <div class="card height-auto">
+                <div class="card-body">
+                    <div class="heading-layout1">
+                        <div class="item-title">
+                            <h3>All Roles Data</h3>
+                            <br>
+                            <a th:href="@{/roles/add}" class="btn btn-lg btn-primary"><i
+                                    class="fas fa-user-plus ml-2"> Add Role</i></a>
+                        </div>
+
+                    </div>
+
+                    <div class="table-responsive">
+                        <table id="myTable" class="table order-column display text-nowrap">
+                            <thead>
+                            <tr>
+                                <th>Role name</th>
+                                <th>Description</th>
+                                <th>Edit</th>
+                                <th>Delete</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr th:each="role : ${roles}">
+                                <td th:text="${role.name}"></td>
+                                <td th:text="${role.description}"></td>
+
+                                <td><a th:href="@{/roles/edit/{id}(id=${role.id})}" class="btn btn-primary"><i
+                                        class="fas fa-user-edit ml-2"></i></a></td>
+                                <td ><a  th:href="@{/roles/delete/{id}(id=${role.id})}" class="btn btn-primary"><i
+                                        class="fas fa-user-times ml-2"></i></a></td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div th:replace="common/header :: body-bottom-scripts"></div>
+</body>
+</html>

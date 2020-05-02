@@ -20,7 +20,7 @@ public class VehicleModelController {
     public String gatVehicleModels(Model model) {
         RestTemplate restTemplate = BuildRestTemplate.restTemplate();
         VehicleModelDto[] vehicleCategories = restTemplate.getForObject("http://localhost:8081/v1/vehicle-models", VehicleModelDto[].class);
-        model.addAttribute("vehicle-models", vehicleCategories);
+        model.addAttribute("vehicleModels", vehicleCategories);
         return "list-vehicle-models";
     }
 

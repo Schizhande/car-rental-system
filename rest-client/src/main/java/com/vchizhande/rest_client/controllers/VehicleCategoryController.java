@@ -17,10 +17,11 @@ import javax.validation.Valid;
 public class VehicleCategoryController {
 
     @GetMapping("list")
-    public String gatVehicleCategorys(Model model) {
+    public String gatVehicleCategories(Model model) {
         RestTemplate restTemplate = BuildRestTemplate.restTemplate();
         VehicleCategoryDto[] vehicleCategories = restTemplate.getForObject("http://localhost:8081/v1/vehicle-categories", VehicleCategoryDto[].class);
-        model.addAttribute("vehicle-categories", vehicleCategories);
+        log.info("----> categories {}", vehicleCategories);
+        model.addAttribute("vehicleCategories", vehicleCategories);
         return "list-vehicle-categories";
     }
 

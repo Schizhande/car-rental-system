@@ -34,13 +34,13 @@
                             <h3>All Vehicle categories Data</h3>
                             <br>
                             <a th:href="@{/vehicle-categories/add}" class="btn btn-lg btn-primary"><i
-                                    class="fas fa-user-plus ml-2"> Add Vehicle category</i></a>
+                                    class="fas fa-plus ml-2"> Add Vehicle category</i></a>
                         </div>
 
                     </div>
 
                     <div class="table-responsive">
-                        <table id="myTable" class="table order-column display text-nowrap">
+                        <table  class="table table-hover table-striped order-column display text-nowrap">
                             <thead>
                             <tr>
                                 <th>Category name</th>
@@ -50,16 +50,16 @@
                             </tr>
                             </thead>
                             <tbody>
-                            <tr th:each="vehicleCategory : ${vehicle-categories}">
+                            <tr th:each="vehicleCategory : ${vehicleCategories}">
                                 <td th:text="${vehicleCategory.categoryName}"></td>
                                 <td th:text="${vehicleCategory.categoryDescription}"></td>
 
                                 <td><a th:href="@{/vehicle-categories/edit/{id}(id=${vehicleCategory.id})}"
                                        class="btn btn-primary"><i
-                                        class="fas fa-user-edit ml-2"></i></a></td>
+                                        class="fas fa-edit ml-2"></i></a></td>
                                 <td><a th:href="@{/vehicle-categories/delete/{id}(id=${vehicleCategory.id})}"
                                        class="btn btn-primary"><i
-                                        class="fas fa-user-times ml-2"></i></a></td>
+                                        class="fas fa-trash ml-2"></i></a></td>
                             </tr>
                             </tbody>
                         </table>

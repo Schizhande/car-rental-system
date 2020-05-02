@@ -29,6 +29,9 @@
     <!-- Modernize js -->
     <script src="/js/modernizr-3.6.0.min.js"></script>
 
+    <link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.2.3/css/responsive.dataTables.min.css">
+<!--    <link rel="stylesheet" href="https://cdn.datatables.net/fixedheader/3.1.6/css/fixedHeader.dataTables.min.css">-->
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css">
 </head>
 
 <body>
@@ -73,6 +76,21 @@
                         <li class="nav-item">
                             <a th:href="@{/vehicle-categories/add}" class="nav-link"><i
                                     class="fas fa-angle-right"></i> Add Vehicles Category</a>
+                        </li>
+
+                    </ul>
+                </li>
+
+                <li class="nav-item sidebar-nav-item">
+                    <a href="#" class="nav-link"><i class="flaticon-list"></i><span>Vehicle Models</span></a>
+                    <ul class="nav sub-group-menu">
+                        <li class="nav-item">
+                            <a th:href="@{/vehicle-models/list}" class="nav-link"><i class="fas fa-angle-right"></i>All
+                                Vehicle Models</a>
+                        </li>
+                        <li class="nav-item">
+                            <a th:href="@{/vehicle-models/add}" class="nav-link"><i
+                                    class="fas fa-angle-right"></i> Add Vehicle Model</a>
                         </li>
 
                     </ul>
@@ -148,12 +166,7 @@
                 <li class="nav-item sidebar-nav-item">
                     <p><br></p>
                 </li>
-                <li class="nav-item sidebar-nav-item">
-                    <p><br></p>
-                </li>
-                <li class="nav-item sidebar-nav-item">
-                    <p><br></p>
-                </li>
+
             </ul>
         </div>
     </div>
@@ -183,7 +196,7 @@
         </div>
         <div class="header-main-menu collapse navbar-collapse" id="mobile-navbar">
             <ul class="navbar-nav">
-                <h1 style="text-align: center; margin-left: 240px; color: darkblue">CAR RENTAL MANAGEMENT SYSTEM</h1>
+                <span class="col-lg-12 col-sm-6 col-md-8" style="text-align: center; color: darkblue">CAR RENTAL MANAGEMENT SYSTEM</span>
             </ul>
             <ul class="navbar-nav">
                 <li class="navbar-item dropdown header-admin">
@@ -239,14 +252,19 @@
     <!-- Custom Js -->
     <script src="/js/main.js"></script>
 
-    <script src="/js/jquery.dataTables.min.js"></script>
+<!--    <script src="/js/jquery.dataTables.min.js"></script>-->
 
-
+    <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/fixedheader/3.1.6/js/dataTables.fixedHeader.min.js"></script>
+    <script src="https://cdn.datatables.net/responsive/2.2.3/js/dataTables.responsive.min.js"></script>
     <script>
-        $(document).ready(function () {
-            $("#myTable").DataTable();
+        $(document).ready(function() {
+            var table = $('#myTable').DataTable( {
+                responsive: true
+            } );
 
-        });
+            // new $.fn.dataTable.FixedHeader( table );
+        } );
 
     </script>
 </div>

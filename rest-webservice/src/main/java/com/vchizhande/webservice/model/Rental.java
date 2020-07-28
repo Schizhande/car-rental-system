@@ -12,9 +12,10 @@ import java.util.Date;
 public class Rental {
 
     @Id
-    @GeneratedValue(strategy= GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd", locale = "en_ZW", timezone = "Africa/Harare")
     private Date rentDate;
 
     @Temporal(TemporalType.TIMESTAMP)
@@ -31,7 +32,7 @@ public class Rental {
 
     @ManyToOne
     @JoinColumn(name = "customer_id")
-    private  Customer customer;
+    private Customer customer;
 
     @ManyToOne
     @JoinColumn(name = "user_id")
@@ -41,17 +42,20 @@ public class Rental {
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd", locale = "en_ZW", timezone = "Africa/Harare")
     private Date returnDate;
 
-    private Integer currentMileage;
+    private Long currentMileage;
+
+    private String status;
 
     public Rental() {
     }
 
-    public Rental(Date rentDate, Date rentEndDate, double rentFee, double penaltyFee, Date returnDate, Integer currentMileage) {
+    public Rental(Date rentDate, Date rentEndDate, double rentFee, double penaltyFee, Date returnDate, Long currentMileage) {
         this.rentDate = rentDate;
         this.rentEndDate = rentEndDate;
         this.rentFee = rentFee;
         this.penaltyFee = penaltyFee;
         this.returnDate = returnDate;
         this.currentMileage = currentMileage;
+        this.status = RentalStatus.OPENED.name();
     }
 }

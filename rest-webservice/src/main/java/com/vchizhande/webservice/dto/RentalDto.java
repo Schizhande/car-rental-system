@@ -12,7 +12,7 @@ public class RentalDto {
 
     private Long id;
 
-    private Integer currentMileage;
+    private Long currentMileage;
 
     private double penaltyFee;
 

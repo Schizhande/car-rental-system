@@ -1,8 +1,13 @@
 package com.vchizhande.rest_client.domain;
 
+import lombok.Data;
+
+@Data
 public class Vehicle {
 
     private Long id;
+
+    private String name;
 
     private String initialMileage;
 

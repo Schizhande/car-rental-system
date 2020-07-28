@@ -39,43 +39,41 @@
 
                     </div>
 
-                    <div class="table-responsive">
-                        <table id="myTable" class="table order-column display text-nowrap">
-                            <thead>
-                            <tr>
-                                <th>First name</th>
-                                <th>Last Name</th>
-                                <th>Gender</th>
-                                <th>Phone number</th>
-                                <th>Email</th>
-                                <th>Customer Number</th>
-                                <th>Address</th>
-                                <th>National Id Number</th>
-                                <th>Date Of Birth</th>
-                                <th>Edit</th>
-                                <th>Delete</th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            <tr th:each="customer : ${customers}">
-                                <td th:text="${customer.firstName}"></td>
-                                <td th:text="${customer.lastName}"></td>
-                                <td th:text="${customer.gender}"></td>
-                                <td th:text="${customer.phoneNumber}"></td>
-                                <td th:text="${customer.email}"></td>
-                                <td th:text="${customer.customerNumber}"></td>
-                                <td th:text="${customer.address}"></td>
-                                <td th:text="${customer.nationalId}"></td>
-                                <td th:text="${customer.dateOfBirth}"></td>
+                    <table id="myTable" class="table table-striped table-bordered order-column display text-nowrap">
+                        <thead>
+                        <tr>
+                            <th>First name</th>
+                            <th>Last Name</th>
+                            <th>Gender</th>
+                            <th>Phone number</th>
+                            <th>Email</th>
+                            <th>Customer Number</th>
+                            <th>Address</th>
+                            <th>National Id Number</th>
+                            <th>Date Of Birth</th>
+                            <th>Edit</th>
+                            <th>Delete</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr th:each="customer : ${customers}">
+                            <td th:text="${customer.firstName}"></td>
+                            <td th:text="${customer.lastName}"></td>
+                            <td th:text="${customer.gender}"></td>
+                            <td th:text="${customer.phoneNumber}"></td>
+                            <td th:text="${customer.email}"></td>
+                            <td th:text="${customer.customerNumber}"></td>
+                            <td th:text="${customer.address}"></td>
+                            <td th:text="${customer.nationalId}"></td>
+                            <td th:text="${customer.dateOfBirth}"></td>
 
-                                <td><a th:href="@{/customers/edit/{id}(id=${customer.id})}" class="btn btn-primary"><i
-                                        class="fas fa-user-edit ml-2"></i></a></td>
-                                <td ><a  th:href="@{/customers/delete/{id}(id=${customer.id})}" class="btn btn-primary"><i
-                                        class="fas fa-user-times ml-2"></i></a></td>
-                            </tr>
-                            </tbody>
-                        </table>
-                    </div>
+                            <td><a th:href="@{/customers/edit/{id}(id=${customer.id})}" class="btn btn-primary"><i
+                                    class="fas fa-user-edit ml-2"></i></a></td>
+                            <td><a th:href="@{/customers/delete/{id}(id=${customer.id})}" class="btn btn-primary"><i
+                                    class="fas fa-user-times ml-2"></i></a></td>
+                        </tr>
+                        </tbody>
+                    </table>
                 </div>
             </div>
         </div>

@@ -25,13 +25,12 @@
     <!-- Custom CSS -->
     <link rel="stylesheet" href="/css/style.css">
     <!-- Data Table CSS -->
-    <link rel="stylesheet" href="/css/jquery.dataTables.min.css">
+    <!--    <link rel="stylesheet" href="/css/jquery.dataTables.min.css">-->
     <!-- Modernize js -->
     <script src="/js/modernizr-3.6.0.min.js"></script>
 
     <link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.2.3/css/responsive.dataTables.min.css">
-<!--    <link rel="stylesheet" href="https://cdn.datatables.net/fixedheader/3.1.6/css/fixedHeader.dataTables.min.css">-->
-    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.21/css/dataTables.bootstrap4.min.css">
 </head>
 
 <body>
@@ -43,7 +42,7 @@
                     <a href="#" class="nav-link"><i class="flaticon-classmates"></i><span> Car Rentals</span></a>
                     <ul class="nav sub-group-menu">
                         <li class="nav-item">
-                            <a th:href="@{/car-rentals}" class="nav-link"><i class="fas fa-angle-right"></i>All
+                            <a th:href="@{/car-rentals/list}" class="nav-link"><i class="fas fa-angle-right"></i>All
                                 Rentals</a>
                         </li>
                         <li class="nav-item">
@@ -252,19 +251,17 @@
     <!-- Custom Js -->
     <script src="/js/main.js"></script>
 
-<!--    <script src="/js/jquery.dataTables.min.js"></script>-->
-
-    <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.21/js/dataTables.bootstrap4.min.js"></script>
     <script src="https://cdn.datatables.net/fixedheader/3.1.6/js/dataTables.fixedHeader.min.js"></script>
     <script src="https://cdn.datatables.net/responsive/2.2.3/js/dataTables.responsive.min.js"></script>
     <script>
-        $(document).ready(function() {
-            var table = $('#myTable').DataTable( {
+        $(document).ready(function () {
+            $('#myTable').DataTable({
                 responsive: true
-            } );
-
-            // new $.fn.dataTable.FixedHeader( table );
-        } );
+            });
+        });
 
     </script>
 </div>

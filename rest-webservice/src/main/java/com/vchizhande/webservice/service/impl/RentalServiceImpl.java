@@ -41,10 +41,10 @@ public class RentalServiceImpl implements RentalService {
     public Rental create(RentalDto rentalDto) {
         Rental rental = rentalDto.toRental();
         Customer customer = customerService.findById(rentalDto.getCustomerId());
-        User user = userService.findById(rentalDto.getUserId());
+//        User user = userService.findById(rentalDto.getUserId());
         Vehicle vehicle = vehicleService.findById(rentalDto.getVehicleId());
         rental.setCustomer(customer);
-        rental.setUser(user);
+//        rental.setUser(user);
         rental.setVehicle(vehicle);
         return rentalRepository.save(rental);
     }

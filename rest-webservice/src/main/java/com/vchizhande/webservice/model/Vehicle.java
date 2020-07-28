@@ -15,6 +15,8 @@ public class Vehicle {
 
     private String initialMileage;
 
+    private String name;
+
     private String registrationNumber;
 
     private String color;

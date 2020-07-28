@@ -17,7 +17,6 @@
         <!-- Sidebar Area End Here -->
         <div class="dashboard-content-one">
             <div class="breadcrumbs-area">
-                <h3>Vehicles</h3>
                 <ul>
                     <li>
                         <a th:href="@{/}">Home</a>
@@ -48,6 +47,17 @@
                             <span th:if="${#fields.hasErrors('registrationNumber')}" th:errors="*{registrationNumber}"
                                   class="text-danger"></span>
                         </div>
+
+                        <div class=" row form-group">
+                            <label for="name" class=" col-xl-3 col-lg-3 col-6 col-form-label">Vehicle name</label>
+                            <input type="text"
+                                   th:field="*{name}"
+                                   class=" col-xl-3 col-lg-3 col-6  form-control"
+                                   id="name"
+                                   placeholder="vehicle name">
+                            <span th:if="${#fields.hasErrors('name')}" th:errors="*{name}"
+                                  class="text-danger"></span>
+                        </div>
                         <div class=" row form-group">
                             <label for="color" class=" col-xl-3 col-lg-3 col-6 col-form-label">Color</label>
                             <textarea type="text"
@@ -65,7 +75,7 @@
                                    th:field="*{initialMileage}"
                                    class="col-xl-3 col-lg-3 col-6 form-control"
                                    id="initialMileage"
-                                      placeholder="color"></textarea>
+                                      placeholder="initial mileage"></textarea>
                             <span th:if="${#fields.hasErrors('initialMileage')}" th:errors="*{initialMileage}"
                                   class="text-danger"></span>
                         </div>
@@ -83,7 +93,7 @@
                         </div>
 
                         <div class="form-group row">
-                            <label for="categoryId" class="col-xl-3 col-lg-3 col-6 col-form-label">Vehicle model</label>
+                            <label for="categoryId" class="col-xl-3 col-lg-3 col-6 col-form-label">Vehicle Category</label>
                             <select class="col-xl-3 col-lg-3 col-6 form-control" th:field="*{categoryId}" id="categoryId">
 
                                 <option th:each="category : ${categories}" th:value="${category.id}"

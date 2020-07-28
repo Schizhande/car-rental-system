@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+
+<head th:replace="common/header :: common-header"></head>
+<body>
+<!-- Preloader Start Here -->
+<div id="preloader"></div>
+<!-- Preloader End Here -->
+<div id="wrapper" class="wrapper bg-ash">
+    <!-- Header Menu Area Start Here -->
+    <div th:replace="common/header :: navbar"></div>
+    <!-- Header Menu Area End Here -->
+    <!-- Page Area Start Here -->
+    <div class="dashboard-page-one">
+        <!-- Sidebar Area Start Here -->
+        <div th:replace="common/header :: sideNav"></div>
+        <!-- Sidebar Area End Here -->
+        <div class="dashboard-content-one">
+            <div class="breadcrumbs-area">
+                <ul>
+                    <li>
+                        <a th:href="@{/}">Home</a>
+                    </li>
+                    <li>All Rentals</li>
+                </ul>
+            </div>
+            <!-- Breadcubs Area End Here -->
+            <!-- Rentals Table Area Start Here -->
+            <div class="card height-auto">
+                <div class="card-body">
+                    <div class="heading-layout1">
+                        <div class="item-title">
+                            <!--                            <h3>All Car rentals Data</h3>-->
+                            <br>
+                            <a th:href="@{/car-rentals/add}" class="btn btn-lg btn-outline-primary"><i
+                                    class="fas fa-plus ml-2"> Add Rental</i></a>
+                        </div>
+
+                    </div>
+
+                    <table id="myTable"
+                           class="table table-bordered table-striped cell-border order-column display text-nowrap"
+                           style="width:100%">
+                        <thead>
+                        <tr>
+                            <th>Customer Number</th>
+                            <th>Vehicle number</th>
+                            <th>Rent date</th>
+                            <th>End date</th>
+                            <th>Rent fee</th>
+                            <th>Status</th>
+                            <!--                                <th>Penalty fee</th>-->
+                            <!--                                <th>Return date</th>-->
+                            <th>View</th>
+                            <th>Edit</th>
+                            <th>Delete</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr th:each="rental : ${rentals}">
+                            <td th:text="${rental?.customer?.customerNumber}"></td>
+                            <td th:text="${rental?.vehicle?.registrationNumber}"></td>
+                            <td th:text="${#dates.format(rental.rentDate, 'dd-MMM-yyyy')}"></td>
+                            <td th:text="${#dates.format(rental.rentEndDate, 'dd-MMM-yyyy')}"></td>
+                            <td th:text="'$' + ${#numbers.formatDecimal(rental.rentFee, 0 ,2)}"></td>
+                            <td th:text="${rental.status}"></td>
+
+                            <!--                                <td th:text="${rental.penaltyFee}"></td>-->
+                            <!--                                <td th:text="${rental.returnDate}"></td>-->
+                            <td><a th:href="@{/car-rentals/view/{id}(id=${rental.id})}" class="btn btn-info"><i
+                                    class="fas fa-eye ml-2"></i></a></td>
+                            <td><a th:href="@{/car-rentals/edit/{id}(id=${rental.id})}" class="btn btn-primary"><i
+                                    class="fas fa-edit ml-2"></i></a></td>
+                            <td><a th:href="@{/car-rentals/delete/{id}(id=${rental.id})}" class="btn btn-danger"><i
+                                    class="fas fa-times ml-2"></i></a></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div th:replace="common/header :: body-bottom-scripts"></div>
+</body>
+</html>

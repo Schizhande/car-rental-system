@@ -17,7 +17,6 @@
         <!-- Sidebar Area End Here -->
         <div class="dashboard-content-one">
             <div class="breadcrumbs-area">
-                <h3>Vehicles</h3>
                 <ul>
                     <li>
                         <a th:href="@{/}">Home</a>
@@ -39,31 +38,34 @@
 
                     </div>
 
-                    <div class="table-responsive">
-                        <table id="myTable" class="table order-column display text-nowrap">
-                            <thead>
-                            <tr>
-                                <th>Registration Number</th>
-                                <th>Color</th>
-                                <th>initialMileage</th>
-                                <th>Edit</th>
-                                <th>Delete</th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            <tr th:each="vehicle : ${vehicles}">
-                                <td th:text="${vehicle.registrationNumber}"></td>
-                                <td th:text="${vehicle.initialMileage}"></td>
-                                <td th:text="${vehicle.color}"></td>
+                    <table id="myTable" class="table table-bordered table-striped order-column display text-nowrap"
+                           style="width:100%">
+                        <thead>
+                        <tr>
+                            <th>Registration Number</th>
+                            <th>Vehicle name</th>
+                            <th>Color</th>
+                            <th>initialMileage</th>
+                            <th>Delete</th>
+                            <th>Edit</th>
 
-                                <td><a th:href="@{/vehicles/edit/{id}(id=${vehicle.id})}" class="btn btn-primary"><i
-                                        class="fas fa-edit ml-2"></i></a></td>
-                                <td ><a  th:href="@{/vehicles/delete/{id}(id=${vehicle.id})}" class="btn btn-primary"><i
-                                        class="fas fa-trash ml-2"></i></a></td>
-                            </tr>
-                            </tbody>
-                        </table>
-                    </div>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr th:each="vehicle : ${vehicles}">
+                            <td th:text="${vehicle.registrationNumber}"></td>
+                            <td th:text="${vehicle.name}"></td>
+                            <td th:text="${vehicle.initialMileage}"></td>
+                            <td th:text="${vehicle.color}"></td>
+                            <td><a th:href="@{/vehicles/delete/{id}(id=${vehicle.id})}" class="btn btn-primary"><i
+                                    class="fas fa-trash ml-2"></i></a></td>
+                            <td><a th:href="@{/vehicles/edit/{id}(id=${vehicle.id})}" class="btn btn-primary"><i
+                                    class="fas fa-edit ml-2"></i></a></td>
+                            <!--                                <td ><a  th:href="@{/vehicles/delete/{id}(id=${vehicle.id})}" class="btn btn-primary"><i-->
+                            <!--                                        class="fas fa-trash ml-2"></i></a></td>-->
+                        </tr>
+                        </tbody>
+                    </table>
                 </div>
             </div>
         </div>

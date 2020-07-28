@@ -17,7 +17,7 @@
         <!-- Sidebar Area End Here -->
         <div class="dashboard-content-one">
             <div class="breadcrumbs-area">
-                <h3>Users</h3>
+
                 <ul>
                     <li>
                         <a th:href="@{/}">Home</a>
@@ -31,45 +31,43 @@
                 <div class="card-body">
                     <div class="heading-layout1">
                         <div class="item-title">
-                            <h3>All Users Data</h3>
-                            <br>
                             <a th:href="@{/users/add}" class="btn btn-lg btn-primary"><i
                                     class="fas fa-user-plus ml-2"> Add User</i></a>
                         </div>
 
                     </div>
 
-                    <div class="table-responsive-sm">
-                        <table id="myTable" class="table order-column display text-nowrap">
-                            <thead>
-                            <tr>
-                                <th>Username</th>
-                                <th>Full Name</th>
-                                <th>Phone number</th>
-                                <th>Email</th>
-                                <th>Address</th>
-                                <th>Role</th>
-                                <th>Edit</th>
-                                <th>Delete</th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            <tr th:each="user : ${users}">
-                                <td th:text="${user.username}"></td>
-                                <td th:text="${user.fullName}"></td>
-                                <td th:text="${user.phoneNumber}"></td>
-                                <td th:text="${user.email}"></td>
-                                <td th:text="${user.address}"></td>
-                                <td th:text="${user.role.name}"></td>
+                    <table id="myTable" class="table table-bordered table-striped order-column display text-nowrap"
+                           style="width:100%">
+                        <thead>
+                        <tr>
+                            <th>Username</th>
+                            <th>Full Name</th>
+                            <th>Phone number</th>
+                            <th>Email</th>
+                            <th>Address</th>
+                            <th>Role</th>
+                            <th>Edit</th>
+                            <th>Delete</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr th:each="user : ${users}">
+                            <td th:text="${user.username}"></td>
+                            <td th:text="${user.fullName}"></td>
+                            <td th:text="${user.phoneNumber}"></td>
+                            <td th:text="${user.email}"></td>
+                            <td th:text="${user.address}"></td>
+                            <td th:text="${user.role.name}"></td>
 
-                                <td><a th:href="@{/users/edit/{id}(id=${user.id})}" class="btn btn-primary"><i
-                                        class="fas fa-user-edit ml-2"></i></a></td>
-                                <td ><a  th:if="${user.username!='vara'} "th:href="@{/users/delete/{id}(id=${user.id})}" class="btn btn-primary"><i
-                                        class="fas fa-user-times ml-2"></i></a></td>
-                            </tr>
-                            </tbody>
-                        </table>
-                    </div>
+                            <td><a th:href="@{/users/edit/{id}(id=${user.id})}" class="btn btn-primary"><i
+                                    class="fas fa-user-edit ml-2"></i></a></td>
+                            <td><a th:if="${user.username!='vara'} " th:href="@{/users/delete/{id}(id=${user.id})}"
+                                   class="btn btn-primary"><i
+                                    class="fas fa-user-times ml-2"></i></a></td>
+                        </tr>
+                        </tbody>
+                    </table>
                 </div>
             </div>
         </div>

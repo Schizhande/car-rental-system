@@ -17,7 +17,6 @@
         <!-- Sidebar Area End Here -->
         <div class="dashboard-content-one">
             <div class="breadcrumbs-area">
-                <h3>Vehicle Models</h3>
                 <ul>
                     <li>
                         <a th:href="@{/}">Home</a>
@@ -33,35 +32,34 @@
                         <div class="item-title">
                             <h3>All Vehicle Models Data</h3>
                             <br>
-                            <a th:href="@{/vehicle-models/add}" class="btn btn-lg btn-primary"><i
+                            <a th:href="@{/vehicle-models/add}" class="btn btn-lg btn-outline-primary"><i
                                     class="fas fa-plus ml-2"> Add Vehicle Model</i></a>
                         </div>
 
                     </div>
 
-                    <div class="table-responsive">
-                        <table id="myTable" class="table order-column display text-nowrap">
-                            <thead>
-                            <tr>
-                                <th>Model Name</th>
-                                <th>Manufacturer</th>
-                                <th>Edit</th>
-                                <th>Delete</th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            <tr th:each="model : ${vehicleModels}">
-                                <td th:text="${model.modelName}"></td>
-                                <td th:text="${model.manufacturer}"></td>
+                    <table id="myTable" class="table table-bordered table-striped order-column display text-nowrap"
+                           style="width:100%">
+                        <thead>
+                        <tr>
+                            <th>Model Name</th>
+                            <th>Manufacturer</th>
+                            <th>Edit</th>
+                            <th>Delete</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr th:each="model : ${vehicleModels}">
+                            <td th:text="${model.modelName}"></td>
+                            <td th:text="${model.manufacturer}"></td>
 
-                                <td><a th:href="@{/vehicle-models/edit/{id}(id=${model.id})}" class="btn btn-primary"><i
-                                        class="fas fa-edit ml-2"></i></a></td>
-                                <td ><a  th:href="@{/vehicle-models/delete/{id}(id=${model.id})}" class="btn btn-primary"><i
-                                        class="fas fa-trash ml-2"></i></a></td>
-                            </tr>
-                            </tbody>
-                        </table>
-                    </div>
+                            <td><a th:href="@{/vehicle-models/edit/{id}(id=${model.id})}" class="btn btn-primary"><i
+                                    class="fas fa-edit ml-2"></i></a></td>
+                            <td><a th:href="@{/vehicle-models/delete/{id}(id=${model.id})}" class="btn btn-danger"><i
+                                    class="fas fa-trash ml-2"></i></a></td>
+                        </tr>
+                        </tbody>
+                    </table>
                 </div>
             </div>
         </div>

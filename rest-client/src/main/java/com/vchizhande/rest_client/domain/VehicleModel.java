@@ -1,5 +1,8 @@
 package com.vchizhande.rest_client.domain;
 
+import lombok.Data;
+
+@Data
 public class VehicleModel {
 
     private Long id;

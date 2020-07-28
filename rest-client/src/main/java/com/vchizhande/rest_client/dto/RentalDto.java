@@ -1,8 +1,7 @@
 package com.vchizhande.rest_client.dto;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Data;
-import org.apache.logging.log4j.message.Message;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.validation.constraints.FutureOrPresent;
 import javax.validation.constraints.NotNull;
@@ -14,34 +13,36 @@ public class RentalDto {
     private Long id;
 
     @NotNull(message = "is required")
-    private Integer currentMileage;
+    private Long currentMileage;
+
+//    @NotNull(message = "is required")
+//    private Double penaltyFee;
 
     @NotNull(message = "is required")
-    private Double penaltyFee;
-
-    @NotNull(message = "is required")
-    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd", locale = "en_ZW", timezone = "Africa/Harare")
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date rentDate;
 
     @NotNull(message = "is required")
-    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd", locale = "en_ZW", timezone = "Africa/Harare")
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date rentEndDate;
 
     @NotNull(message = "is required")
     private Double rentFee;
 
-    @FutureOrPresent(message = "date should in future or present")
-    @NotNull(message = "is required")
-    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd", locale = "en_ZW", timezone = "Africa/Harare")
-    private Date returnDate;
+//    @FutureOrPresent(message = "date should in future or present")
+//    @NotNull(message = "is required")
+//    @DateTimeFormat(pattern = "yyyy-MM-dd")
+//    private Date returnDate;
 
     @NotNull(message = "is required")
     private Long customerId;
-
-    @NotNull(message = "is required")
-    private Long userId;
+//
+//    @NotNull(message = "is required")
+//    private Long userId;
 
     @NotNull(message = "is required")
     private Long vehicleId;
+
+    private String status;
 
 }

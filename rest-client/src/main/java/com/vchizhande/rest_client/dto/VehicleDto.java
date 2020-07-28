@@ -11,6 +11,9 @@ public class VehicleDto {
     private Long id;
 
     @NotBlank(message = "is required")
+    private String name;
+
+    @NotBlank(message = "is required")
     private String color;
 
     @NotBlank(message = "is required")

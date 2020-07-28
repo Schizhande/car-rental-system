@@ -1,8 +1,11 @@
 package com.vchizhande.rest_client.domain;
 
 
+import lombok.Data;
+
 import java.util.Date;
 
+@Data
 public class Customer {
 
     private Long id;

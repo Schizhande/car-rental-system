@@ -10,7 +10,7 @@ public class BuildRestTemplate {
     public static RestTemplate restTemplate() {
 
         return new RestTemplateBuilder()
-                .basicAuthentication("vara", "abc")
+//                .basicAuthentication("vara", "abc")
                 .build();
 
     }

@@ -71,7 +71,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public User loadUserByUsername(String name) throws UsernameNotFoundException {
-
+        log.info("### username {}", name);
         User user = userRepository.findByUsername(name)
                 .orElseThrow(() -> new UsernameNotFoundException("Username or password wrong"));
         return user;

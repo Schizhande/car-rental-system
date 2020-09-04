@@ -1,121 +1,124 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 
+
 <head th:replace="common/header :: common-header"></head>
-<body>
-<!-- Preloader Start Here -->
-<div id="preloader"></div>
-<!-- Preloader End Here -->
-<div id="wrapper" class="wrapper bg-ash">
-    <!-- Header Menu Area Start Here -->
-    <div th:replace="common/header :: navbar"></div>
-    <!-- Header Menu Area End Here -->
-    <!-- Page Area Start Here -->
-    <div class="dashboard-page-one">
-        <!-- Sidebar Area Start Here -->
-        <div th:replace="common/header :: sideNav"></div>
-        <!-- Sidebar Area End Here -->
-        <div class="dashboard-content-one">
-            <div class="breadcrumbs-area">
-                <ul>
-                    <li>
-                        <a th:href="@{/}">Home</a>
-                    </li>
-                    <li>
-                        <a th:href="@{/car-rentals/list}">All car rentals</a>
-                    </li>
-                    <li>Add rental</li>
-                </ul>
-            </div>
-            <div class="card height-auto">
-                <div class="card-body">
-                    <div class="heading-layout1">
-                        <div class="item-title">
-                            <h3>Add New Rental</h3>
-                        </div>
+
+<body id="page-top">
+
+<!-- Page Wrapper -->
+<div id="wrapper">
+
+    <!-- Sidebar -->
+    <!-- End of Sidebar -->
+    <div th:replace="common/header :: sideNav"></div>
+    <!-- Content Wrapper -->
+    <div id="content-wrapper" class="d-flex flex-column">
+
+        <!-- Main Content -->
+        <div id="content">
+
+            <!-- Topbar -->
+            <div th:replace="common/header :: navbar"></div>
+            <!-- End of Topbar -->
+
+            <!-- Begin Page Content -->
+            <div class="container-fluid">
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="#">Home</a></li>
+                        <li class="breadcrumb-item"><a href="#">All rentals</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">Add car rental</li>
+                    </ol>
+                </nav>
+                <!-- DataTales Example -->
+                <div class="card shadow mb-4">
+                    <div class="card-header py-3">
+                        <h6 class="m-0 font-weight-bold text-primary">Add new car rental</h6>
                     </div>
+                    <div class="card-body">
+                        <form th:action="@{/car-rentals/add}" th:object="${rental}" method="post"
+                              class="new-added-form">
+                            <div class="form-group row">
+                                <label for="vehicleId" class="col-xl-3 col-lg-3 col-6 col-form-label">Vehicle</label>
+                                <select class="col-xl-3 col-lg-3 col-6 form-control" th:field="*{vehicleId}"
+                                        id="vehicleId">
 
-                    <form th:action="@{/car-rentals/add}" th:object="${rental}" method="post"
-                          class="new-added-form">
-                        <div class="form-group row">
-                            <label for="vehicleId" class="col-xl-3 col-lg-3 col-6 col-form-label">Vehicle</label>
-                            <select class="col-xl-3 col-lg-3 col-6 form-control" th:field="*{vehicleId}" id="vehicleId">
-
-                                <option th:each="vehicle : ${vehicles}" th:value="${vehicle.id}"
-                                        th:text="${vehicle.registrationNumber}"></option>
-                            </select>
-                            <span
-                                    th:if="${#fields.hasErrors('vehicleId')}" th:errors="*{vehicleId}"
-                                    class="text-danger"></span>
-                        </div>
-
-                        <div class="form-group row">
-                            <label for="customerId" class="col-xl-3 col-lg-3 col-6 col-form-label">Customer</label>
-                            <select class="col-xl-3 col-lg-3 col-6 form-control" th:field="*{customerId}"
-                                    id="customerId">
-
-                                <option th:each="customer : ${customers}" th:value="${customer.id}"
-                                        th:text="${customer.lastName} + ${customer.firstName}"></option>
-                            </select>
-                            <span
-                                    th:if="${#fields.hasErrors('customerId')}" th:errors="*{customerId}"
-                                    class="text-danger"></span>
-                        </div>
-                        <div class=" row form-group">
-                            <label for="rentDate" class=" col-xl-3 col-lg-3 col-6 col-form-label">Rent Date</label>
-                            <input type="date"
-                                   th:field="*{rentDate}"
-                                   class=" col-xl-3 col-lg-3 col-6  form-control"
-                                   id="rentDate"
-                                   placeholder="rent date">
-                            <span th:if="${#fields.hasErrors('rentDate')}" th:errors="*{rentDate}"
-                                  class="text-danger"></span>
-                        </div>
-
-                        <div class=" row form-group">
-                            <label for="rentEndDate" class=" col-xl-3 col-lg-3 col-6 col-form-label">Rent End
-                                Date</label>
-                            <input type="date"
-                                   th:field="*{rentEndDate}"
-                                   class=" col-xl-3 col-lg-3 col-6  form-control"
-                                   id="rentEndDate"
-                                   placeholder="rent end date">
-                            <span th:if="${#fields.hasErrors('rentEndDate')}" th:errors="*{rentEndDate}"
-                                  class="text-danger"></span>
-                        </div>
-
-                        <div class=" row form-group">
-                            <label for="rentFee" class=" col-xl-3 col-lg-3 col-6 col-form-label">Rent Fee</label>
-                            <input type="number"
-                                   th:field="*{rentFee}"
-                                   class=" col-xl-3 col-lg-3 col-6  form-control"
-                                   id="rentFee"
-                                   placeholder="rent fee">
-                            <span th:if="${#fields.hasErrors('rentFee')}" th:errors="*{rentFee}"
-                                  class="text-danger"></span>
-                        </div>
-                        <div class=" row form-group">
-                            <label for="currentMileage" class=" col-xl-3 col-lg-3 col-6 col-form-label">Current
-                                Mileage</label>
-                            <input type="number"
-                                   th:field="*{currentMileage}"
-                                   class=" col-xl-3 col-lg-3 col-6  form-control"
-                                   id="currentMileage"
-                                   placeholder="current mileage">
-                            <span th:if="${#fields.hasErrors('currentMileage')}" th:errors="*{currentMileage}"
-                                  class="text-danger"></span>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-6">
-                                <input type="submit" class="btn btn-lg btn-primary" value="Add rental">
+                                    <option th:each="vehicle : ${vehicles}" th:value="${vehicle.id}"
+                                            th:text="${vehicle.registrationNumber}"></option>
+                                </select>
+                                <span
+                                        th:if="${#fields.hasErrors('vehicleId')}" th:errors="*{vehicleId}"
+                                        class="text-danger"></span>
                             </div>
-                        </div>
-                    </form>
+
+                            <div class="form-group row">
+                                <label for="customerId" class="col-xl-3 col-lg-3 col-6 col-form-label">Customer</label>
+                                <select class="col-xl-3 col-lg-3 col-6 form-control" th:field="*{customerId}"
+                                        id="customerId">
+
+                                    <option th:each="customer : ${customers}" th:value="${customer.id}"
+                                            th:text="${customer.lastName} + ${customer.firstName}"></option>
+                                </select>
+                                <span
+                                        th:if="${#fields.hasErrors('customerId')}" th:errors="*{customerId}"
+                                        class="text-danger"></span>
+                            </div>
+                            <div class=" row form-group">
+                                <label for="rentDate" class=" col-xl-3 col-lg-3 col-6 col-form-label">Rent Date</label>
+                                <input type="date"
+                                       th:field="*{rentDate}"
+                                       class=" col-xl-3 col-lg-3 col-6  form-control"
+                                       id="rentDate"
+                                       placeholder="rent date">
+                                <span th:if="${#fields.hasErrors('rentDate')}" th:errors="*{rentDate}"
+                                      class="text-danger"></span>
+                            </div>
+
+                            <div class=" row form-group">
+                                <label for="rentEndDate" class=" col-xl-3 col-lg-3 col-6 col-form-label">Rent End
+                                    Date</label>
+                                <input type="date"
+                                       th:field="*{rentEndDate}"
+                                       class=" col-xl-3 col-lg-3 col-6  form-control"
+                                       id="rentEndDate"
+                                       placeholder="rent end date">
+                                <span th:if="${#fields.hasErrors('rentEndDate')}" th:errors="*{rentEndDate}"
+                                      class="text-danger"></span>
+                            </div>
+
+                            <div class=" row form-group">
+                                <label for="rentFee" class=" col-xl-3 col-lg-3 col-6 col-form-label">Rent Fee</label>
+                                <input type="number"
+                                       th:field="*{rentFee}"
+                                       class=" col-xl-3 col-lg-3 col-6  form-control"
+                                       id="rentFee"
+                                       placeholder="rent fee">
+                                <span th:if="${#fields.hasErrors('rentFee')}" th:errors="*{rentFee}"
+                                      class="text-danger"></span>
+                            </div>
+                            <div class=" row form-group">
+                                <label for="currentMileage" class=" col-xl-3 col-lg-3 col-6 col-form-label">Current
+                                    Mileage</label>
+                                <input type="number"
+                                       th:field="*{currentMileage}"
+                                       class=" col-xl-3 col-lg-3 col-6  form-control"
+                                       id="currentMileage"
+                                       placeholder="current mileage">
+                                <span th:if="${#fields.hasErrors('currentMileage')}" th:errors="*{currentMileage}"
+                                      class="text-danger"></span>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <input type="submit" class="btn btn-md btn-primary" value="SAVE">
+                                </div>
+                            </div>
+                        </form>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
 </div>
 <div th:replace="common/header :: body-bottom-scripts"></div>
 </body>

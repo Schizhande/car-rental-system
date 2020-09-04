@@ -2,268 +2,268 @@
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml" xmlns:sec="http://www.w3.org/1999/xhtml">
 <head th:fragment="common-header">
     <meta charset="utf-8">
-    <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>CAR | HOME</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- Favicon -->
-    <link rel="shortcut icon" type="image/x-icon" href="img/favicon.png">
-    <!-- Normalize CSS -->
-    <link rel="stylesheet" href="/css/normalize.css">
-    <!-- Main CSS -->
-    <link rel="stylesheet" href="/css/main.css">
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="/css/bootstrap.min.css">
-    <!-- Fontawesome CSS -->
-    <link rel="stylesheet" href="/css/all.min.css">
-    <!-- Flaticon CSS -->
-    <link rel="stylesheet" href="/fonts/flaticon.css">
-    <!-- Full Calender CSS -->
-    <link rel="stylesheet" href="/css/fullcalendar.min.css">
-    <!-- Animate CSS -->
-    <link rel="stylesheet" href="/css/animate.min.css">
-    <!-- Custom CSS -->
-    <link rel="stylesheet" href="/css/style.css">
-    <!-- Data Table CSS -->
-    <!--    <link rel="stylesheet" href="/css/jquery.dataTables.min.css">-->
-    <!-- Modernize js -->
-    <script src="/js/modernizr-3.6.0.min.js"></script>
+    <meta name="author" content="">
 
-    <link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.2.3/css/responsive.dataTables.min.css">
-    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.21/css/dataTables.bootstrap4.min.css">
+    <title>Car Rental</title>
+
+    <!-- Custom fonts for this template -->
+    <link href="/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+          rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="/css/sb-admin-2.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this page -->
+    <link href="/vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
 </head>
 
 <body>
 <div th:fragment="sideNav">
-    <div class="sidebar-main sidebar-menu-one sidebar-expand-md sidebar-color">
-        <div class="sidebar-menu-content">
-            <ul class="nav nav-sidebar-menu sidebar-toggle-view">
-                <li class="nav-item sidebar-nav-item">
-                    <a href="#" class="nav-link"><i class="flaticon-classmates"></i><span> Car Rentals</span></a>
-                    <ul class="nav sub-group-menu">
-                        <li class="nav-item">
-                            <a th:href="@{/car-rentals/list}" class="nav-link"><i class="fas fa-angle-right"></i>All
-                                Rentals</a>
-                        </li>
-                        <li class="nav-item">
-                            <a th:href="@{/car-rentals/add}" class="nav-link"><i
-                                    class="fas fa-angle-right"></i>Add Car Rental</a>
-                        </li>
-                    </ul>
-                </li>
-                <li class="nav-item sidebar-nav-item">
-                    <a href="#" class="nav-link"><i
-                            class="flaticon-bus-side-view"></i><span>Vehicles</span></a>
-                    <ul class="nav sub-group-menu">
-                        <li class="nav-item">
-                            <a th:href="@{/vehicles/list}" class="nav-link"><i class="fas fa-angle-right"></i>All
-                                Vehicles</a>
-                        </li>
-                        <li class="nav-item">
-                            <a th:href="@{/vehicles/add}" class="nav-link"><i
-                                    class="fas fa-angle-right"></i>Add Vehicles</a>
-                        </li>
-                    </ul>
-                </li>
-                <li class="nav-item sidebar-nav-item">
-                    <a href="#" class="nav-link"><i class="flaticon-list"></i><span>Vehicle Category</span></a>
-                    <ul class="nav sub-group-menu">
-                        <li class="nav-item">
-                            <a th:href="@{/vehicle-categories/list}" class="nav-link"><i class="fas fa-angle-right"></i>All
-                                Vehicles Category</a>
-                        </li>
-                        <li class="nav-item">
-                            <a th:href="@{/vehicle-categories/add}" class="nav-link"><i
-                                    class="fas fa-angle-right"></i> Add Vehicles Category</a>
-                        </li>
 
-                    </ul>
-                </li>
+    <!-- Sidebar -->
+    <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
-                <li class="nav-item sidebar-nav-item">
-                    <a href="#" class="nav-link"><i class="flaticon-list"></i><span>Vehicle Models</span></a>
-                    <ul class="nav sub-group-menu">
-                        <li class="nav-item">
-                            <a th:href="@{/vehicle-models/list}" class="nav-link"><i class="fas fa-angle-right"></i>All
-                                Vehicle Models</a>
-                        </li>
-                        <li class="nav-item">
-                            <a th:href="@{/vehicle-models/add}" class="nav-link"><i
-                                    class="fas fa-angle-right"></i> Add Vehicle Model</a>
-                        </li>
+        <!-- Sidebar - Brand -->
+        <a class="sidebar-brand d-flex align-items-center justify-content-center" href="#">
+            <div class="sidebar-brand-icon rotate-n-15">
+                <i class="fas fa-laugh-wink"></i>
+            </div>
+            <div class="sidebar-brand-text mx-3">CAR RENTAL</div>
+        </a>
 
-                    </ul>
-                </li>
-                <li class="nav-item sidebar-nav-item">
-                    <a href="#" class="nav-link"><i class="flaticon-money"></i><span>Payments</span></a>
-                    <ul class="nav sub-group-menu">
-                        <li class="nav-item">
-                            <a th:href="@{/payments/list}" class="nav-link"><i class="fas fa-angle-right"></i>All
-                                Payments</a>
-                        </li>
-                        <li class="nav-item">
-                            <a th:href="@{/payments/add}" class="nav-link"><i class="fas fa-angle-right"></i>Add New
-                                Payment</a>
-                        </li>
-                    </ul>
-                </li>
+        <!-- Divider -->
+        <hr class="sidebar-divider my-0">
 
-                <li class="nav-item sidebar-nav-item">
-                    <a href="#" class="nav-link"><i class="flaticon-user"></i><span>Users</span></a>
-                    <ul class="nav sub-group-menu">
-                        <li class="nav-item">
-                            <a th:href="@{/users/list}" class="nav-link"><i class="fas fa-angle-right"></i>All
-                                Users</a>
-                        </li>
-                        <li class="nav-item">
-                            <a th:href="@{/users/add}" class="nav-link"><i class="fas fa-angle-right"></i>Add New
-                                User</a>
-                        </li>
-                    </ul>
-                </li>
+        <!-- Nav Item - Dashboard -->
+        <li class="nav-item">
+            <a class="nav-link" href="/">
+                <i class="fas fa-fw fa-tachometer-alt"></i>
+                <span>Dashboard</span></a>
+        </li>
 
-                <li class="nav-item sidebar-nav-item">
-                    <a href="#" class="nav-link"><i
-                            class="flaticon-multiple-users-silhouette"></i><span>User Roles</span></a>
-                    <ul class="nav sub-group-menu">
-                        <li class="nav-item">
-                            <a th:href="@{/roles/list}" class="nav-link"><i class="fas fa-angle-right"></i>All
-                                Roles</a>
-                        </li>
-                        <li class="nav-item">
-                            <a th:href="@{/roles/add}" class="nav-link"><i class="fas fa-angle-right"></i>Add New
-                                Roles</a>
-                        </li>
-                    </ul>
-                </li>
+        <!-- Divider -->
+        <hr class="sidebar-divider">
 
-                <li class="nav-item sidebar-nav-item">
-                    <a href="#" class="nav-link"><i
-                            class="flaticon-multiple-users-silhouette"></i><span>Customers</span></a>
-                    <ul class="nav sub-group-menu">
-                        <li class="nav-item">
-                            <a th:href="@{/customers/list}" class="nav-link"><i class="fas fa-angle-right"></i>All
-                                Customers</a>
-                        </li>
-                        <li class="nav-item">
-                            <a th:href="@{/customers/add}" class="nav-link"><i class="fas fa-angle-right"></i>Add New
-                                Customer</a>
-                        </li>
-                    </ul>
-                </li>
+        <!-- Nav Item - Pages Collapse Menu -->
+        <li class="nav-item">
+            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
+               aria-expanded="true" aria-controls="collapseTwo">
+                <i class="fas fa-fw fa-clipboard-list"></i>
+                <span>Car rentals</span>
+            </a>
+            <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                <div class="bg-white py-2 collapse-inner rounded">
+                    <a class="collapse-item" th:href="@{/car-rentals/list}">All Rentals</a>
+                    <a class="collapse-item" th:href="@{/car-rentals/add}">Add car rental</a>
+                </div>
+            </div>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseVeh"
+               aria-expanded="true" aria-controls="collapseTwo">
+                <i class="fas fa-fw fa-car"></i>
+                <span>Vehicles</span>
+            </a>
+            <div id="collapseVeh" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                <div class="bg-white py-2 collapse-inner rounded">
+                    <a class="collapse-item" th:href="@{/vehicles/list}">All Vehicles</a>
+                    <a class="collapse-item" th:href="@{/vehicles/add}">Add vehicle</a>
+                </div>
+            </div>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseCat"
+               aria-expanded="true" aria-controls="collapseTwo">
+                <i class="fas fa-fw fa-list"></i>
+                <span>Vehicle Category</span>
+            </a>
+            <div id="collapseCat" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                <div class="bg-white py-2 collapse-inner rounded">
+                    <a class="collapse-item" th:href="@{/vehicle-categories/list}">All Categories</a>
+                    <a class="collapse-item" th:href="@{/vehicle-categories/add}">Add Category</a>
+                </div>
+            </div>
+        </li>
 
-                <li class="nav-item">
-                    <a th:href="@{/user-profile}" class="nav-link"><i
-                            class="flaticon-settings"></i><span>Account</span></a>
-                </li>
-                <li class="nav-item sidebar-nav-item">
-                    <p><br></p>
-                </li>
-                <li class="nav-item sidebar-nav-item">
-                    <p><br></p>
-                </li>
-                <li class="nav-item sidebar-nav-item">
-                    <p><br></p>
-                </li>
+        <li class="nav-item">
+            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseMod"
+               aria-expanded="true" aria-controls="collapseTwo">
+                <i class="fas fa-fw fa-car-side"></i>
+                <span>Vehicle Model</span>
+            </a>
+            <div id="collapseMod" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                <div class="bg-white py-2 collapse-inner rounded">
+                    <a class="collapse-item" th:href="@{/vehicle-models/list}">All Models</a>
+                    <a class="collapse-item" th:href="@{/vehicle-models/add}">Add Model</a>
+                </div>
+            </div>
+        </li>
 
-            </ul>
-        </div>
-    </div>
+        <li class="nav-item">
+            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePay"
+               aria-expanded="true" aria-controls="collapseTwo">
+                <i class="fas fa-fw fa-money-bill"></i>
+                <span>Payments</span>
+            </a>
+            <div id="collapsePay" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                <div class="bg-white py-2 collapse-inner rounded">
+                    <a class="collapse-item" th:href="@{/payments/list}">All Payments</a>
+                </div>
+            </div>
+        </li>
+
+        <li class="nav-item">
+            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUser"
+               aria-expanded="true" aria-controls="collapseTwo">
+                <i class="fas fa-fw fa-user"></i>
+                <span>Users</span>
+            </a>
+            <div id="collapseUser" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                <div class="bg-white py-2 collapse-inner rounded">
+                    <a class="collapse-item" th:href="@{/users/list}">All Users</a>
+                    <a class="collapse-item" th:href="@{/users/add}">Add User</a>
+                </div>
+            </div>
+        </li>
+
+        <li class="nav-item">
+            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseRole"
+               aria-expanded="true" aria-controls="collapseTwo">
+                <i class="fas fa-fw fa-user-cog"></i>
+                <span>User roles</span>
+            </a>
+            <div id="collapseRole" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                <div class="bg-white py-2 collapse-inner rounded">
+                    <a class="collapse-item" th:href="@{/roles/list}">All Roles</a>
+                    <a class="collapse-item" th:href="@{/roles/add}">Add Role</a>
+                </div>
+            </div>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseCus"
+               aria-expanded="true" aria-controls="collapseTwo">
+                <i class="fas fa-fw fa-users"></i>
+                <span>Customers</span>
+            </a>
+            <div id="collapseCus" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                <div class="bg-white py-2 collapse-inner rounded">
+                    <a class="collapse-item" th:href="@{/customers/list}">All Customers</a>
+                    <a class="collapse-item" th:href="@{/customers/add}">Add Customer</a>
+                </div>
+            </div>
+        </li>
+
+    </ul>
+</div>
+</div>
 </div>
 
 <div th:fragment="navbar">
-    <div class="navbar navbar-expand-md header-menu-one ">
-        <div class="nav-bar-header-one">
-            <div class="toggle-button sidebar-toggle">
-                <button type="button" class="item-link">
-                        <span class="btn-icon-wrap">
-                            <span></span>
-                            <span></span>
-                            <span></span>
-                        </span>
-                </button>
-            </div>
-        </div>
-        <div class="d-md-none mobile-nav-bar">
-            <button class="navbar-toggler pulse-animation" type="button" data-toggle="collapse"
-                    data-target="#mobile-navbar" aria-expanded="false">
-                <i class="far fa-arrow-alt-circle-down"></i>
-            </button>
-            <button type="button" class="navbar-toggler sidebar-toggle-mobile">
-                <i class="fas fa-bars"></i>
-            </button>
-        </div>
-        <div class="header-main-menu collapse navbar-collapse" id="mobile-navbar">
-            <ul class="navbar-nav">
-                <span class="col-lg-12 col-sm-6 col-md-8" style="text-align: center; color: darkblue">CAR RENTAL MANAGEMENT SYSTEM</span>
-            </ul>
-            <ul class="navbar-nav">
-                <li class="navbar-item dropdown header-admin">
+    <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
 
-                    <a class="navbar-nav-link dropdown-toggle" href="" role="button" data-toggle="dropdown"
-                       aria-expanded="false">
-                        <div class="admin-title">
-                            <h5 class="item-title"><span sec:authentication="name"></span></h5>
+        <!-- Sidebar Toggle (Topbar) -->
+        <form class="form-inline">
+            <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
+                <i class="fa fa-bars"></i>
+            </button>
+        </form>
+
+
+        <!-- Topbar Navbar -->
+        <ul class="navbar-nav ml-auto">
+
+            <!-- Nav Item - Search Dropdown (Visible Only XS) -->
+            <li class="nav-item dropdown no-arrow d-sm-none">
+                <a class="nav-link dropdown-toggle" href="#" id="searchDropdown" role="button"
+                   data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <i class="fas fa-search fa-fw"></i>
+                </a>
+                <!-- Dropdown - Messages -->
+                <div class="dropdown-menu dropdown-menu-right p-3 shadow animated--grow-in"
+                     aria-labelledby="searchDropdown">
+                    <form class="form-inline mr-auto w-100 navbar-search">
+                        <div class="input-group">
+                            <input type="text" class="form-control bg-light border-0 small"
+                                   placeholder="Search for..." aria-label="Search"
+                                   aria-describedby="basic-addon2">
+                            <div class="input-group-append">
+                                <button class="btn btn-primary" type="button">
+                                    <i class="fas fa-search fa-sm"></i>
+                                </button>
+                            </div>
                         </div>
-                        <div class="admin-img">
-                            <img th:src="@{/img/figure/admin.jpg}" alt="Admin">
-                        </div>
+                    </form>
+                </div>
+            </li>
+            <!-- Nav Item - User Information -->
+            <li class="nav-item dropdown no-arrow">
+                <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
+                   data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <span class="mr-2 d-none d-lg-inline text-gray-600 small">Hello [[${#httpServletRequest.remoteUser}]]!</span>
+                    <img class="img-profile rounded-circle" src="https://source.unsplash.com/QAB-WJcbgJk/60x60">
+                </a>
+                <!-- Dropdown - User Information -->
+                <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
+                     aria-labelledby="userDropdown">
+                    <a class="dropdown-item" href="#">
+                        <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
+                        Profile
                     </a>
-                    <div class="dropdown-menu dropdown-menu-right">
-                        <div class="item-header">
-                            <h6 class="item-title"><span
-                                    th:inline="text">Hello [[${#httpServletRequest.remoteUser}]]!</span></h6>
-                        </div>
-                        <div class="item-content">
-                            <ul class="settings-list">
-                                <li><a href="#"><i class="flaticon-user"></i>My Profile</a></li>
-                                <li><a th:href="@{/logout}">Sign Out</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </li>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="#" data-toggle="modal"
+                       data-target="#logoutModal">
+                        <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+                        Logout
+                    </a>
+                </div>
+            </li>
 
-            </ul>
-        </div>
-    </div>
+        </ul>
+
+    </nav>
 </div>
 <div th:fragment="body-bottom-scripts">
-    <!-- jquery-->
-    <script src="/js/jquery-3.3.1.min.js"></script>
-    <!-- Plugins js -->
-    <script src="/js/plugins.js"></script>
-    <!-- Popper js -->
-    <script src="/js/popper.min.js"></script>
-    <!-- Bootstrap js -->
-    <script src="/js/bootstrap.min.js"></script>
-    <!-- Counterup Js -->
-    <script src="/js/jquery.counterup.min.js"></script>
-    <!-- Moment Js -->
-    <script src="/js/moment.min.js"></script>
-    <!-- Waypoints Js -->
-    <script src="/js/jquery.waypoints.min.js"></script>
-    <!-- Scroll Up Js -->
-    <script src="/js/jquery.scrollUp.min.js"></script>
-    <!-- Full Calender Js -->
-    <script src="/js/fullcalendar.min.js"></script>
-    <!-- Chart Js -->
-    <script src="/js/Chart.min.js"></script>
-    <!-- Custom Js -->
-    <script src="/js/main.js"></script>
 
-    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
-    <script src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script>
-    <script src="https://cdn.datatables.net/1.10.21/js/dataTables.bootstrap4.min.js"></script>
-    <script src="https://cdn.datatables.net/fixedheader/3.1.6/js/dataTables.fixedHeader.min.js"></script>
-    <script src="https://cdn.datatables.net/responsive/2.2.3/js/dataTables.responsive.min.js"></script>
-    <script>
-        $(document).ready(function () {
-            $('#myTable').DataTable({
-                responsive: true
-            });
-        });
+    <!-- Logout Modal-->
+    <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+         aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+                <div class="modal-footer">
+                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+                    <a class="btn btn-primary" th:href="@{/logout}">Logout</a>
+                </div>
+            </div>
+        </div>
+    </div>
 
-    </script>
+    <!-- Bootstrap core JavaScript-->
+    <script src="/vendor/jquery/jquery.min.js"></script>
+    <script src="/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Core plugin JavaScript-->
+    <script src="/vendor/jquery-easing/jquery.easing.min.js"></script>
+
+    <!-- Custom scripts for all pages-->
+    <script src="/js/sb-admin-2.min.js"></script>
+
+    <!-- Page level plugins -->
+    <script src="/vendor/datatables/jquery.dataTables.min.js"></script>
+    <script src="/vendor/datatables/dataTables.bootstrap4.min.js"></script>
+
+    <!-- Page level custom scripts -->
+    <script src="/js/demo/datatables-demo.js"></script>
 </div>
 </body>
 </html>

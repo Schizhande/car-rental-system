@@ -1,10 +1,8 @@
 package com.vchizhande.rest_client.domain;
 
-import com.vchizhande.rest_client.dto.UserDetailsDto;
 import lombok.Data;
 
-import javax.persistence.*;
-
+@Data
 public class Payments {
 
     private Long id;
@@ -20,7 +18,5 @@ public class Payments {
     private String reference;
 
     private Customer customer;
-
-    private UserDetailsDto user;
 
 }

@@ -2,10 +2,7 @@ package com.vchizhande.rest_client.controllers;
 
 import com.vchizhande.rest_client.configuration.BuildRestTemplate;
 import com.vchizhande.rest_client.domain.Rental;
-import com.vchizhande.rest_client.dto.CustomerDto;
-import com.vchizhande.rest_client.dto.RentalDto;
-import com.vchizhande.rest_client.dto.VehicleDto;
-import com.vchizhande.rest_client.dto.VehicleModelDto;
+import com.vchizhande.rest_client.dto.*;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -42,7 +39,7 @@ public class RentalController {
     @PostMapping("add")
     public String addCarRental(@Valid @ModelAttribute("rental") RentalDto rental, BindingResult result, Model model) {
         log.info("-------->Add rental");
-        log.info("-----> has errors {}",result.hasErrors() );
+        log.info("-----> has errors {}", result.hasErrors());
         log.info("-----> errors {}", result.getModel());
         RestTemplate restTemplate = BuildRestTemplate.restTemplate();
         if (result.hasErrors()) {
@@ -52,19 +49,15 @@ public class RentalController {
             model.addAttribute("customers", customers);
             return "save-rental";
         }
-        restTemplate.postForObject("http://localhost:8081/v1/rentals",
+        RentalDto rentalDto = restTemplate.postForObject("http://localhost:8081/v1/rentals",
                 rental,
                 RentalDto.class);
-        return "redirect:/car-rentals/list";
-    }
-
-    @GetMapping("edit/{id}")
-    public String showUpdateForm(@PathVariable long id, Model model) {
-        RestTemplate restTemplate = BuildRestTemplate.restTemplate();
-        RentalDto rentalDto = restTemplate.getForObject("http://localhost:8081/v1/rentals/{id}",
-                RentalDto.class, id);
-        model.addAttribute("rental", rentalDto);
-        return "update-rental";
+        PaymentsDto paymentsDto = new PaymentsDto();
+        paymentsDto.setAmount(rentalDto.getRentFee());
+        paymentsDto.setCustomerId(rental.getCustomerId());
+        paymentsDto.setRentalId(rentalDto.getId());
+        model.addAttribute("payment", paymentsDto);
+        return "save-payment";
     }
 
     @GetMapping("view/{id}")
@@ -74,20 +67,6 @@ public class RentalController {
                 Rental.class, id);
         model.addAttribute("rental", rentalDto);
         return "view-rental";
-    }
-
-    @PostMapping("update/{id}")
-    public String updateCarRental(@PathVariable long id, @Valid @ModelAttribute("rental") RentalDto rental,
-                                  BindingResult result) {
-        RestTemplate restTemplate = BuildRestTemplate.restTemplate();
-        if (result.hasErrors()) {
-            rental.setId(id);
-            return "update-rental";
-        }
-        restTemplate.put("http://localhost:8081/v1/rentals/{id}",
-                rental,
-                rental.getId());
-        return "redirect:/car-rentals/list";
     }
 
     @GetMapping("delete/{id}")

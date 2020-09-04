@@ -10,7 +10,7 @@ public class PaymentsDto {
 
     private Long id;
 
-   @NotNull(message = "is required")
+    @NotNull(message = "is required")
     private Double amount;
 
     @NotBlank(message = "is required")
@@ -19,7 +19,6 @@ public class PaymentsDto {
     @NotBlank(message = "is required")
     private String paymentMethod;
 
-    @NotBlank(message = "is required")
     private String reference;
 
     @NotNull(message = "is required")
@@ -28,7 +27,6 @@ public class PaymentsDto {
     @NotNull(message = "is required")
     private Long rentalId;
 
-    @NotNull(message = "is required")
     private Long userId;
 
 }

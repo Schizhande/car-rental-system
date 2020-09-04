@@ -2,74 +2,76 @@
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 
 <head th:replace="common/header :: common-header"></head>
-<body>
-<!-- Preloader Start Here -->
-<div id="preloader"></div>
-<!-- Preloader End Here -->
-<div id="wrapper" class="wrapper bg-ash">
-    <!-- Header Menu Area Start Here -->
-    <div th:replace="common/header :: navbar"></div>
-    <!-- Header Menu Area End Here -->
-    <!-- Page Area Start Here -->
-    <div class="dashboard-page-one">
-        <!-- Sidebar Area Start Here -->
-        <div th:replace="common/header :: sideNav"></div>
-        <!-- Sidebar Area End Here -->
-        <div class="dashboard-content-one">
-            <div class="breadcrumbs-area">
-                <ul>
-                    <li>
-                        <a th:href="@{/}">Home</a>
-                    </li>
-                    <li>
-                        <a th:href="@{/vehicle-models/list}">All Vehicle models</a>
-                    </li>
-                    <li>Update Vehicle model</li>
-                </ul>
-            </div>
-            <div class="card height-auto">
-                <div class="card-body">
-                    <div class="heading-layout1">
-                        <div class="item-title">
-                            <h3>Update Vehicle category</h3>
-                        </div>
-                    </div>
 
-                    <form  th:action="@{/vehicle-models/update/{id}(id=${vehicleModel.id})}" th:object="${vehicleModel}" method="post"
-                          class="new-added-form">
-                        <div class=" row form-group">
-                            <label for="modelName" class=" col-xl-3 col-lg-3 col-6 col-form-label">Model
-                                name</label>
-                            <input type="text"
-                                   th:field="*{modelName}"
-                                   class=" col-xl-3 col-lg-3 col-6  form-control"
-                                   id="modelName"
-                                   placeholder="model name">
-                            <span th:if="${#fields.hasErrors('modelName')}" th:errors="*{modelName}"
-                                  class="text-danger"></span>
-                        </div>
-                        <div class=" row form-group">
-                            <label for="manufacturer"
-                                   class=" col-xl-3 col-lg-3 col-6 col-form-label">Description</label>
-                            <textarea type="text"
-                                      th:field="*{manufacturer}"
-                                      class="col-xl-3 col-lg-3 col-6 form-control"
-                                      id="manufacturer"
-                                      placeholder="manufacturer"></textarea>
-                            <span th:if="${#fields.hasErrors('manufacturer')}" th:errors="*{manufacturer}"
-                                  class="text-danger"></span>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-6">
-                                <input type="submit" class="btn btn-lg btn-primary" value="Add vehicle category">
+<body id="page-top">
+
+<!-- Page Wrapper -->
+<div id="wrapper">
+
+    <!-- Sidebar -->
+    <!-- End of Sidebar -->
+    <div th:replace="common/header :: sideNav"></div>
+    <!-- Content Wrapper -->
+    <div id="content-wrapper" class="d-flex flex-column">
+
+        <!-- Main Content -->
+        <div id="content">
+
+            <!-- Topbar -->
+            <div th:replace="common/header :: navbar"></div>
+            <!-- End of Topbar -->
+
+            <!-- Begin Page Content -->
+            <div class="container-fluid">
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="#">Home</a></li>
+                        <li class="breadcrumb-item"><a href="#">All models</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">Add model</li>
+                    </ol>
+                </nav>
+                <!-- DataTales Example -->
+                <div class="card shadow mb-4">
+                    <div class="card-header py-3">
+                        <h6 class="m-0 font-weight-bold text-primary">Update model</h6>
+                    </div>
+                    <div class="card-body">
+                        <form th:action="@{/vehicle-models/update/{id}(id=${vehicleModel.id})}"
+                              th:object="${vehicleModel}" method="post"
+                              class="new-added-form">
+                            <div class=" row form-group">
+                                <label for="modelName" class=" col-xl-3 col-lg-3 col-6 col-form-label">Model
+                                    name</label>
+                                <input type="text"
+                                       th:field="*{modelName}"
+                                       class=" col-xl-3 col-lg-3 col-6  form-control"
+                                       id="modelName"
+                                       placeholder="model name">
+                                <span th:if="${#fields.hasErrors('modelName')}" th:errors="*{modelName}"
+                                      class="text-danger"></span>
                             </div>
-                        </div>
-                    </form>
+                            <div class=" row form-group">
+                                <label for="manufacturer"
+                                       class=" col-xl-3 col-lg-3 col-6 col-form-label">Description</label>
+                                <textarea type="text"
+                                          th:field="*{manufacturer}"
+                                          class="col-xl-3 col-lg-3 col-6 form-control"
+                                          id="manufacturer"
+                                          placeholder="manufacturer"></textarea>
+                                <span th:if="${#fields.hasErrors('manufacturer')}" th:errors="*{manufacturer}"
+                                      class="text-danger"></span>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <input type="submit" class="btn btn-md btn-primary" value="SAVE">
+                                </div>
+                            </div>
+                        </form>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
 </div>
 <div th:replace="common/header :: body-bottom-scripts"></div>
 </body>

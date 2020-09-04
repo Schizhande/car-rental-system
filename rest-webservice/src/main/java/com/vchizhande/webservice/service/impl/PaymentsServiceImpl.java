@@ -50,20 +50,21 @@ public class PaymentsServiceImpl implements PaymentsService {
     @Override
     public Payments create(PaymentsDto paymentDto) {
         Payments payment = paymentDto.toPayments();
-        Rental rental= rentalService.findById(paymentDto.getRentalId());
-        User user = userService.findById(paymentDto.getUserId());
+        Rental rental = rentalService.findById(paymentDto.getRentalId());
+//        User user = userService.findById(paymentDto.getUserId());
         Customer customer = customerService.findById(paymentDto.getCustomerId());
         payment.setRental(rental);
         payment.setCustomer(customer);
-        payment.setUser(user);
+        payment.setReference("Ref-" + rental.getId() + "" + customer.getId());
+//        payment.setUser(user);
         return paymentRepository.save(payment);
     }
 
     @Override
     public Payments update(PaymentsDto paymentDto) {
         Payments payment = findById(paymentDto.getId());
-        Rental rental= rentalService.findById(paymentDto.getRentalId());
-        User user = userService.findById(paymentDto.getUserId());
+        Rental rental = rentalService.findById(paymentDto.getRentalId());
+//        User user = userService.findById(paymentDto.getUserId());
         Customer customer = customerService.findById(paymentDto.getCustomerId());
         payment.setAmount(paymentDto.getAmount());
         payment.setCurrency(paymentDto.getCurrency());
@@ -71,7 +72,7 @@ public class PaymentsServiceImpl implements PaymentsService {
         payment.setPaymentMethod(paymentDto.getPaymentMethod());
         payment.setRental(rental);
         payment.setCustomer(customer);
-        payment.setUser(user);
+//        payment.setUser(user);
         return paymentRepository.save(payment);
     }
 }

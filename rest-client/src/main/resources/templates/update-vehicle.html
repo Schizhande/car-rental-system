@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+
+
+<head th:replace="common/header :: common-header"></head>
+
+<body id="page-top">
+
+<!-- Page Wrapper -->
+<div id="wrapper">
+
+    <!-- Sidebar -->
+    <!-- End of Sidebar -->
+    <div th:replace="common/header :: sideNav"></div>
+    <!-- Content Wrapper -->
+    <div id="content-wrapper" class="d-flex flex-column">
+
+        <!-- Main Content -->
+        <div id="content">
+
+            <!-- Topbar -->
+            <div th:replace="common/header :: navbar"></div>
+            <!-- End of Topbar -->
+
+            <!-- Begin Page Content -->
+            <div class="container-fluid">
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="#">Home</a></li>
+                        <li class="breadcrumb-item"><a href="#">All vehicles</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">Edit vehicle</li>
+                    </ol>
+                </nav>
+                <!-- DataTales Example -->
+                <div class="card shadow mb-4">
+                    <div class="card-header py-3">
+                        <h6 class="m-0 font-weight-bold text-primary">Add new vehicle</h6>
+                    </div>
+                    <div class="card-body">
+                        <form th:action="@{/vehicles/update}" th:object="${vehicle}" method="post"
+                              class="new-added-form">
+                            <div class=" row form-group">
+                                <label for="registrationNumber" class=" col-xl-3 col-lg-3 col-6 col-form-label">Vehicle
+                                    registration number</label>
+                                <input type="text"
+                                       th:field="*{registrationNumber}"
+                                       class=" col-xl-3 col-lg-3 col-6  form-control"
+                                       id="registrationNumber"
+                                       placeholder="registration Number">
+                                <span th:if="${#fields.hasErrors('registrationNumber')}"
+                                      th:errors="*{registrationNumber}"
+                                      class="text-danger"></span>
+                            </div>
+
+                            <div class=" row form-group">
+                                <label for="name" class=" col-xl-3 col-lg-3 col-6 col-form-label">Vehicle name</label>
+                                <input type="text"
+                                       th:field="*{name}"
+                                       class=" col-xl-3 col-lg-3 col-6  form-control"
+                                       id="name"
+                                       placeholder="vehicle name">
+                                <span th:if="${#fields.hasErrors('name')}" th:errors="*{name}"
+                                      class="text-danger"></span>
+                            </div>
+                            <div class=" row form-group">
+                                <label for="color" class=" col-xl-3 col-lg-3 col-6 col-form-label">Color</label>
+                                <textarea type="text"
+                                          th:field="*{color}"
+                                          class="col-xl-3 col-lg-3 col-6 form-control"
+                                          id="color"
+                                          placeholder="color"></textarea>
+                                <span th:if="${#fields.hasErrors('color')}" th:errors="*{color}"
+                                      class="text-danger"></span>
+                            </div>
+
+                            <div class=" row form-group">
+                                <label for="initialMileage" class=" col-xl-3 col-lg-3 col-6 col-form-label">Initial
+                                    Mileage</label>
+                                <textarea type="text"
+                                          th:field="*{initialMileage}"
+                                          class="col-xl-3 col-lg-3 col-6 form-control"
+                                          id="initialMileage"
+                                          placeholder="initial mileage"></textarea>
+                                <span th:if="${#fields.hasErrors('initialMileage')}" th:errors="*{initialMileage}"
+                                      class="text-danger"></span>
+                            </div>
+
+                            <div class="form-group row">
+                                <label for="modelId" class="col-xl-3 col-lg-3 col-6 col-form-label">Vehicle
+                                    model</label>
+                                <select class="col-xl-3 col-lg-3 col-6 form-control" th:field="*{modelId}" id="modelId">
+
+                                    <option th:each="model : ${models}" th:value="${model.id}"
+                                            th:text="${model.modelName}"></option>
+                                </select>
+                                <span
+                                        th:if="${#fields.hasErrors('categoryId')}" th:errors="*{categoryId}"
+                                        class="text-danger"></span>
+                            </div>
+
+                            <div class="form-group row">
+                                <label for="categoryId" class="col-xl-3 col-lg-3 col-6 col-form-label">Vehicle
+                                    Category</label>
+                                <select class="col-xl-3 col-lg-3 col-6 form-control" th:field="*{categoryId}"
+                                        id="categoryId">
+
+                                    <option th:each="category : ${categories}" th:value="${category.id}"
+                                            th:text="${category.categoryName}"></option>
+                                </select>
+                                <span
+                                        th:if="${#fields.hasErrors('categoryId')}" th:errors="*{categoryId}"
+                                        class="text-danger"></span>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <input type="submit" class="btn btn-md btn-primary" value="SAVE">
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div th:replace="common/header :: body-bottom-scripts"></div>
+</body>
+</html>

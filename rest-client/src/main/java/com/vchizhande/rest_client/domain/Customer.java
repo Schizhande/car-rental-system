@@ -8,6 +8,11 @@ import java.util.Date;
 @Data
 public class Customer {
 
+
+    public Customer() {
+        this.fullName = lastName + " " + firstName;
+    }
+
     private Long id;
 
     private String firstName;
@@ -29,4 +34,7 @@ public class Customer {
     private String photoId;
 
     private String customerNumber;
+
+    private String fullName;
+
 }
